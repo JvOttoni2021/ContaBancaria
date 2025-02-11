@@ -8,18 +8,17 @@ public class ContaTerminal {
         String agencia, nomeCliente;
         double saldo;
 
+        nomeCliente = lerString(scanner, "Digite o seu nome: ");
+
         numeroConta = lerInteiro(scanner);
-        scanner.nextLine();
 
         agencia = lerString(scanner, "Digite o número da agencia: ");
-
-        nomeCliente = lerString(scanner, "Digite o seu nome: ");
 
         saldo = lerDouble(scanner);
 
         Conta conta = new Conta(numeroConta, agencia, nomeCliente, saldo);
 
-        System.out.println(conta.toString());
+        System.out.println(conta);
     }
 
     private static int lerInteiro(Scanner scanner) {
@@ -28,6 +27,7 @@ public class ContaTerminal {
             System.out.print("Digite o número da conta: ");
             try {
                 valorRetorno = scanner.nextInt();
+                scanner.nextLine();
                 return valorRetorno;
             }
             catch (Exception ex) {
@@ -62,6 +62,7 @@ public class ContaTerminal {
             System.out.print("Digite o seu saldo: ");
             try {
                 valorRetorno = scanner.nextDouble();
+                scanner.nextLine();
                 return valorRetorno;
             }
             catch (Exception ex) {
